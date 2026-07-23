@@ -24,7 +24,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npm test
+      run: npm run test:chrome
 
     - name: List files in workspace (for debugging)
       run: ls -R
