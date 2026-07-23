@@ -88,7 +88,7 @@ Magento/
 
 # 📂 Detailed File Breakdown
 
-## 📄 Pages/
+## 📄 Pages
 
 Contains all **Page Object Model** classes.
 
@@ -141,7 +141,7 @@ Handles:
 
 ---
 
-## 📄 tests/
+## 📄 tests
 
 Contains all automated test scenarios.
 
@@ -154,7 +154,7 @@ Current test suites:
 
 ---
 
-## 📄 utils/
+## 📄 utils
 
 Contains shared utilities.
 
