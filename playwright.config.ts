@@ -1,62 +1,28 @@
-import { defineConfig, devices } from '@playwright/test';
-
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+
   workers: 1,
-  /* Run tests in files in parallel */
   fullyParallel: false,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+
   reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
   use: {
     headless: false,
-     baseURL: 'https://magento2-demo.magebit.com/',
-    trace: 'on-first-retry',
+    baseURL: 'https://magento2-demo.magebit.com/',
+
+    // Use the browser window size instead of a fixed viewport
+    viewport: null,
+
+    launchOptions: {
+      args: ['--start-maximized'],
+    },
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
       name: 'chrome',
-      use: { ...devices['Desktop Chrome'] },
-    }
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
